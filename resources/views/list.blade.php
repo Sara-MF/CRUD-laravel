@@ -10,7 +10,7 @@
         <div class="body-content">
             <a href="{{ route('create') }}"><button class="create-button col-md-2">Create book</button></a>
             
-            <table class="table">
+            <table class="table custom-table">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -20,12 +20,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>Title</th>
-                        <td>Author</td>
-                        <td>Rented</td>
-                        <td>Actions</td>
-                    </tr>
+                    @foreach($books as $book)
+                        <tr>
+                            <td>{{ $book->title }}</td>
+                            <td>{{ $book->author }}</td>
+                            <td>{{ $book->rented ? 'Yes' : 'No'}}</td>
+                            <td>Edit / Delete</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
