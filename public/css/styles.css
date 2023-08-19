@@ -13,6 +13,7 @@ body {
     margin: auto;
     margin-top: 100px;
     border-radius: 20px;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .header-content {
@@ -51,4 +52,16 @@ body {
 
 .create-button:focus {
     outline: none;
+}
+
+.custom-table {
+    background-color: #efe9cd;
+}
+
+table.custom-table>thead>tr>th {
+    border: 2px solid #cdb573;
+}
+
+table.custom-table>tbody>tr>td {
+    border: 2px solid #cdb573;
 }
