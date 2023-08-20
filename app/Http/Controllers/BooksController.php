@@ -31,7 +31,28 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if ($request->rented_status == '1') {
+
+            $request->rented_status = true;
+
+        } else {
+
+            $request->rented_status = false;
+
+        }
+
+        $newBook = Books::create([
+
+            'title' => $request->title,
+            'author' => $request->author,
+            'description' => $request->description,
+            'release_year' => $request->release_year,
+            'rented' => $request->rented_status
+
+        ]);
+
+        return view('create');
     }
 
     /**

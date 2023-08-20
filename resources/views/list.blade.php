@@ -8,7 +8,7 @@
         </div>
 
         <div class="body-content">
-            <a href="{{ route('create') }}"><button class="create-button col-md-2">Create book</button></a>
+            <a href="{{ route('create') }}"><button class="button col-md-2">Create book</button></a>
             
             <table class="table custom-table">
                 <thead>

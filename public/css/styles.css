@@ -2,6 +2,18 @@ body {
     background-color: #d3a18f;
 }
 
+input,
+textarea,
+select,
+button {
+    outline: none;
+}
+
+form .form-control:focus {
+    border-color: #9f5f60;
+    box-shadow: none;
+}
+
 .navbar {
     background-color: #9f5f60;
     color: white;
@@ -34,10 +46,9 @@ body {
     padding: 40px;
 }
 
-.create-button {
+.button {
     margin-bottom: 30px;
     border-radius: 5px;
-    outline: none;
     background-color: #71a6b2;
     color: white;
     padding: 5px;
@@ -45,13 +56,14 @@ body {
     border: 2px solid #3d6872;
 }
 
-.create-button:active {
+.button:active {
     background-color: #3d6872;
     border: 2px solid #3d6872;
 }
 
-.create-button:focus {
-    outline: none;
+.button-form {
+    margin-bottom: 0px;
+    margin-top: 30px;
 }
 
 .custom-table {
@@ -64,4 +76,9 @@ table.custom-table>thead>tr>th {
 
 table.custom-table>tbody>tr>td {
     border: 2px solid #cdb573;
+}
+
+textarea {
+    padding: 10px;
+    resize: none;
 }
