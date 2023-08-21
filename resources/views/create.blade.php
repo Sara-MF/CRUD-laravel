@@ -6,6 +6,22 @@
         <h3>Create new book</h3>
     </div>
 
+    @if (count($errors) > 0 && $errors->has('error'))
+        <div>
+            <ul>
+                @foreach($errors->all() as $error)
+                    {{$error}}
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
+
     <div class="body-content">
         <a href="{{ route('list') }}"><button class="button col-md-2">Back to list</button></a>
 

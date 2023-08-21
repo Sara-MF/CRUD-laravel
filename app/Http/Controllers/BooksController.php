@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Books;
+use Illuminate\Support\Facades\Log;
 
 class BooksController extends Controller
 {
@@ -32,27 +33,42 @@ class BooksController extends Controller
     public function store(Request $request)
     {
 
-        if ($request->rented_status == '1') {
+        try {
 
-            $request->rented_status = true;
+            DB::beginTransaction();
 
-        } else {
+            if ($request->rented_status == '1') {
+        
+                $request->rented_status = true;
+    
+            } else {
+    
+                $request->rented_status = false;
+    
+            }
+    
+            $newBook = Books::create([
+    
+                'title' => $request->title,
+                'author' => $request->author,
+                'description' => $request->description,
+                'release_year' => $request->release_year,
+                'rented' => $request->rented_status
+    
+            ]);   
+            
+            DB::commit();
 
-            $request->rented_status = false;
+        } catch (\Throwable $e) {
 
+            Log::info('It was not possible to create the book: ' . $e->getMessage());
+
+            DB::rollback();
+
+            return back()->withErrors(['error' => 'It was not possible to create the book. Please, try again'])->withInput();
         }
 
-        $newBook = Books::create([
-
-            'title' => $request->title,
-            'author' => $request->author,
-            'description' => $request->description,
-            'release_year' => $request->release_year,
-            'rented' => $request->rented_status
-
-        ]);
-
-        return view('create');
+        return back()->with('success', 'Book created successfully!');
     }
 
     /**

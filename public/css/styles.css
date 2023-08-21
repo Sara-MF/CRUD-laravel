@@ -82,3 +82,8 @@ textarea {
     padding: 10px;
     resize: none;
 }
+
+.alert {
+    margin-bottom: 0px;
+    text-align: center;
+}
