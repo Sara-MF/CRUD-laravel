@@ -25,7 +25,9 @@
                             <td>{{ $book->title }}</td>
                             <td>{{ $book->author }}</td>
                             <td>{{ $book->rented ? 'Yes' : 'No'}}</td>
-                            <td>Edit / Delete</td>
+                            <td>
+                                <a href="{{ route('edit-book', ['id' => $book->id]) }}">Edit</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

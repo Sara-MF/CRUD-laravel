@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Books;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class BooksController extends Controller
 {
@@ -82,9 +83,11 @@ class BooksController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('update');
+        $book = Books::find($id);
+
+        return view('update', compact('book'));
     }
 
     /**
@@ -92,7 +95,43 @@ class BooksController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $book = Books::find($id);
+
+        try {
+
+            DB::beginTransaction();
+
+            if ($request->rented_status == '1') {
+        
+                $request->rented_status = true;
+    
+            } else {
+    
+                $request->rented_status = false;
+    
+            }
+
+            $book->title = $request->title;
+            $book->author = $request->author;
+            $book->description = $request->description;
+            $book->release_year = $request->release_year;
+            $book->rented = $request->rented_status;
+
+            $book->save();
+
+            DB::commit();
+
+        } catch (\Throwable $e) {
+
+            Log::info('It was not possible to update the book: ' . $e->getMessage());
+
+            DB::rollback();
+
+            return back()->withErrors(['error' => 'It was not possible to update the book. Please, try again'])->withInput();
+
+        }
+
+        return back()->with('success', 'Book updated successfully!');
     }
 
     /**
