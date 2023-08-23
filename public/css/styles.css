@@ -9,6 +9,10 @@ button {
     outline: none;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 form .form-control:focus {
     border-color: #9f5f60;
     box-shadow: none;

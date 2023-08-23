@@ -19,6 +19,10 @@
         <!-- Css -->
         <link rel="stylesheet" type="text/css" href="{{ url('/css/styles.css') }}" />
 
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+
     </head>
     <body>
 
