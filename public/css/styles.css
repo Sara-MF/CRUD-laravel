@@ -47,7 +47,7 @@ form .form-control:focus {
 }
 
 .body-content {
-    padding: 40px;
+    padding: 40px 40px 30px;
 }
 
 .button {
@@ -90,4 +90,56 @@ textarea {
 .alert {
     margin-bottom: 0px;
     text-align: center;
+}
+
+.pagination {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff !important;
+    background-color: #b27079 !important;
+    border-color: #b27079 !important;
+    border-radius: 50%;
+    padding: 6px 12px;
+}
+
+.page-link {
+    z-index: 3;
+    color: #b27079 !important;
+    background-color: #fff;
+    border-color: #9f5f60;
+    border-radius: 50%;
+    padding: 6px 12px !important;
+}
+
+.page-item:first-child .page-link {
+    border-radius: 30% !important;
+}
+
+.page-item:last-child .page-link {
+    border-radius: 30% !important;
+}
+
+.pagination li {
+    padding: 3px;
+}
+
+.disabled .page-link {
+    color: #212529 !important;
+    opacity: 0.5 !important;
+}
+
+.page-link:hover {
+    background-color: #f9b0b4;
+}
+
+.page-link:focus,
+.page-link:active {
+    outline: none !important;
+    box-shadow: none;
 }

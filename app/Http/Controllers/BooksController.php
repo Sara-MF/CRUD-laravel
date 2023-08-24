@@ -15,7 +15,7 @@ class BooksController extends Controller
     public function index()
     {
 
-        $books = Books::orderBy('title')->get();
+        $books = Books::orderBy('title')->paginate(10);
 
         return view('list', compact('books'));
     }
