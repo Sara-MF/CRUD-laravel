@@ -27,3 +27,5 @@ Route::get('/show', [BooksController::class, 'show']);
 
 Route::get('/edit/{id}', [BooksController::class, 'edit'])->name('edit-book');
 Route::put('/edit/{id}', [BooksController::class, 'update'])->name('update-book');
+
+Route::delete('/delete/{id}', [BooksController::class, 'delete'])->name('delete-book');

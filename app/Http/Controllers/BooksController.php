@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class BooksController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
 
@@ -20,17 +18,11 @@ class BooksController extends Controller
         return view('list', compact('books'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
 
@@ -72,17 +64,11 @@ class BooksController extends Controller
         return back()->with('success', 'Book created successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show()
     {
         return view('read');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $book = Books::find($id);
@@ -90,9 +76,6 @@ class BooksController extends Controller
         return view('update', compact('book'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $book = Books::find($id);
@@ -134,11 +117,10 @@ class BooksController extends Controller
         return back()->with('success', 'Book updated successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function delete($id)
     {
-        //
+        $book = Books::where('id', $id)->delete();
+
+        return back()->with('success', 'Book deleted successfully!');
     }
 }
