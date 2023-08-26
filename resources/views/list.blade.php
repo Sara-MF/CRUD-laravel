@@ -24,8 +24,27 @@
         @endif
 
         <div class="body-content">
-            <a href="{{ route('create') }}"><button class="button col-md-2">Create book</button></a>
-            
+                
+                <div class="row form-group" style="display:flex; justify-content: space-between;">
+
+                    <div class="col-md-3">
+                        <a href="{{ route('create') }}"><button class="button col-md-12">Create book</button></a>
+                    </div>
+
+                    <form action="{{ route('list') }}" method="get" class="col-md-7">
+
+                        @csrf
+        
+                        <div style="display: flex; flex-direction: row; gap: 10px;">
+                            <label>Title:</label>
+                            <input id="title" name="title" type="text" class="form-control" style="max-height: 38px;">
+                            <button class="button col-md-3" type="submit">Search</button>
+                        </div>
+
+                    </form>
+                    
+                </div>
+
             <table class="table custom-table">
                 <thead>
                     <tr>
@@ -60,7 +79,7 @@
             </table>
 
             <div class="pagination">
-                {{ $books->links() }}
+                {{ $books->appends($filters)->links() }}
             </div>
             
         </div>

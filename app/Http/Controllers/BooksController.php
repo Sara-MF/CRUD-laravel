@@ -10,12 +10,22 @@ use Illuminate\Support\Facades\DB;
 class BooksController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
 
-        $books = Books::orderBy('title')->paginate(10);
+        $filters = $request->except('_token');
 
-        return view('list', compact('books'));
+        if ($request->title != null) {
+
+            $books = Books::where('title', 'ilike', '%'. $request->title .'%')->orderBy('title')->paginate(10);
+
+        } else {
+
+            $books = Books::orderBy('title')->paginate(10);
+        }
+
+
+        return view('list', compact('books', 'filters'));
     }
 
     public function create()
