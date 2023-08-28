@@ -60,20 +60,43 @@
                             <td>{{ $book->title }}</td>
                             <td>{{ $book->author }}</td>
                             <td>{{ $book->rented ? 'Yes' : 'No'}}</td>
-
-                             <form action="{{ route('delete-book', ['id' => $book->id]) }}" method="post">
-
-                                @csrf
-                                @method('DELETE')
-
-                                <td>
-                                    <a href="{{ route('edit-book', ['id' => $book->id]) }}" style="color: #57727b; margin-right: 20px;">Edit <i class="fa fa-edit"></i></a>
-                                    <button type="submit" style="outline: none; border: none; background: none; cursor: pointer; color: #b7727c">Delete  <i class="fa fa-trash" style="color: #b7727c"></i></button>
-                                </td>
-
-                            </form>
-
+                            <td>
+                                <a href="{{ route('edit-book', ['id' => $book->id]) }}" style="color: #57727b; margin-right: 20px;">Edit <i class="fa fa-edit"></i></a>
+                                <button data-toggle="modal" data-target="#deleteConfirmationModal-{{ $book->id }}"
+                                        style="outline: none; border: none; background: none; cursor: pointer; color: #b7727c">
+                                        Delete  <i class="fa fa-trash" style="color: #b7727c"></i></button>
+                            </td>
                         </tr>
+                        
+                        <div class="modal fade" id="deleteConfirmationModal-{{ $book->id }}" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                    
+                                <div class="modal-content rounded-0">
+                    
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="deleteConfirmationModalLabel">Confirm deletion</h1>
+                                        <button data-dismiss="modal" style="outline: none; border: none; background: none; cursor: pointer;"><i class="fa fa-times" style="color: white; font-size: 24px"></i></button>
+                                    </div>
+                    
+                                    <div class="modal-body">
+                                        <span> Do you really wanna delete <strong>{{ $book->title }}</strong>? </span><br>
+                                    </div>
+                    
+                                    <div class="modal-footer">
+                                        <form action="{{ route('delete-book', ['id' => $book->id]) }}" method="post">
+                    
+                                            @csrf
+                                            @method('DELETE')
+                    
+                                            <button type="submit" class="button button-modal btn btn-primary">Confirm</button>
+                                        </form>    
+                                    </div>
+                    
+                                </div>
+                    
+                            </div>
+                        </div>
+                        
                     @endforeach
                 </tbody>
             </table>
