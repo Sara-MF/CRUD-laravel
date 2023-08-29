@@ -64,8 +64,8 @@
                     <div class="col-md-6">
                         <label>Rented</label>
                         <select id="rented_status" name="rented_status" class="form-control" required>
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
+                            <option value="0" {{ $book->rented == false ? 'selected' : '' }}>No</option>
+                            <option value="1" {{ $book->rented == true ? 'selected' : '' }}>Yes</option>
                         </select>
                     </div>
                 
