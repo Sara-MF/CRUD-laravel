@@ -58,7 +58,11 @@
 
                     <div class="col-md-6">
                         <label>Release Year</label>
-                        <input id="release_year" name="release_year" class="form-control" type="date" value="{{ $book->release_year }}" >
+                        <select name="release_year" id="release_year" class="form-control">
+                            @foreach($years as $year)
+                                <option value="{{ $year }}" {{ $book->release_year == $year ? 'selected' : '' }}>{{ $year }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="col-md-6">

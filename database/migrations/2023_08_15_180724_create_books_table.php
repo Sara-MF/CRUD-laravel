@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('author');
-            $table->date('release_year')->nullable();
+            $table->integer('release_year');
             $table->boolean('rented');
             $table->timestamps();
         });

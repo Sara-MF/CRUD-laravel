@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Books;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class BooksController extends Controller
 {
@@ -24,13 +25,17 @@ class BooksController extends Controller
             $books = Books::orderBy('title')->paginate(10);
         }
 
-
         return view('list', compact('books', 'filters'));
     }
 
     public function create()
     {
-        return view('create');
+
+        $years = [];
+
+        for ($year = Carbon::now()->year; $year >= 1950; $year--) $years[$year] = $year;
+
+        return view('create', compact('years'));
     }
 
     public function store(Request $request)
@@ -55,7 +60,7 @@ class BooksController extends Controller
                 'title' => $request->title,
                 'author' => $request->author,
                 'description' => $request->description,
-                'release_year' => $request->release_year,
+                'release_year' => (int) $request->release_year,
                 'rented' => $request->rented_status
     
             ]);   
@@ -83,7 +88,11 @@ class BooksController extends Controller
     {
         $book = Books::find($id);
 
-        return view('update', compact('book'));
+        $years = [];
+
+        for ($year = Carbon::now()->year; $year >= 1950; $year--) $years[$year] = $year;
+
+        return view('update', compact('book', 'years'));
     }
 
     public function update(Request $request, string $id)
