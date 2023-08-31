@@ -1,5 +1,7 @@
 body {
-    background-color: #d3a18f;
+    background-image: url("../books-pattern.jpg");
+    background-size: 600px;
+    background-repeat: repeat;
 }
 
 input,
@@ -59,18 +61,23 @@ form .form-control:focus {
 }
 
 .button {
+    border: unset;
     margin-bottom: 30px;
     border-radius: 5px;
-    background-color: #71a6b2;
-    color: white;
+    background-color: #79a38f;
+    color: #ffffff;
     padding: 5px;
     cursor: pointer;
-    border: 2px solid #3d6872;
+    font-weight: 400;
 }
 
 .button:active {
-    background-color: #3d6872;
-    border: 2px solid #3d6872;
+    top: 2px;
+}
+
+.button:focus {
+    border: unset;
+    outline: unset;
 }
 
 .button-form {
@@ -79,9 +86,12 @@ form .form-control:focus {
 }
 
 .custom-table {
-    background-color: #efe9cd;
+    background-color: #ffebd0;
     margin-top: -10px;
     margin-bottom: -5px;
+    border-radius: 3px !important;
+    overflow: hidden !important;
+    color: #61393a;
 }
 
 table.custom-table>thead>tr>th {
