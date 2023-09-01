@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Quicksand:wght@400;500;600&family=Ubuntu:wght@300&display=swap');
+
 body {
     background-image: url("../books-pattern.jpg");
     background-size: 600px;
     background-repeat: repeat;
+    font-family: 'Quicksand';
 }
 
 input,
