@@ -73,7 +73,7 @@
                     
                                 <div class="modal-content rounded-0">
                     
-                                    <div class="modal-header">
+                                    <div class="modal-header border-0"">
                                         <h1 class="modal-title fs-5" id="deleteConfirmationModalLabel">Confirm deletion</h1>
                                         <button data-dismiss="modal" style="outline: none; border: none; background: none; cursor: pointer;"><i class="fa fa-times" style="color: white; font-size: 24px"></i></button>
                                     </div>
@@ -82,7 +82,7 @@
                                         <span> Do you really wanna delete <strong>{{ $book->title }}</strong>? </span><br>
                                     </div>
                     
-                                    <div class="modal-footer">
+                                    <div class="modal-footer border-0"">
                                         <form action="{{ route('delete-book', ['id' => $book->id]) }}" method="post">
                     
                                             @csrf

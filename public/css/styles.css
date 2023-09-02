@@ -178,17 +178,18 @@ textarea {
 .modal-header {
     background-color: #9f5f60;
     color: white;
+    padding-left: 20px;
     border-top-left-radius: 20px !important;
     border-top-right-radius: 20px !important;
 }
 
 .modal-body {
-    background-color: #efe9cd;
+    background-color: #ffebd0;
     padding: 20px;
 }
 
 .modal-footer {
-    background-color: #d3a18f;
+    background-color: #ffebd0;
     max-height: 70px;
     align-items: center;
     border-bottom-left-radius: 20px !important;
@@ -198,17 +199,19 @@ textarea {
 .button-modal {
     margin-top: 28px;
     width: 90px;
+    background-color: #79a38f;
 }
 
 .button-modal:hover {
-    background: #71a6b2 !important;
-    border: 2px solid #3d6872 !important;
+    background: #79a38f !important;
 }
 
 .button-modal:focus,
 .button-modal:active {
-    background-color: #3d6872 !important;
-    border: 2px solid #3d6872 !important;
     outline: none !important;
     box-shadow: none !important;
+}
+
+.button-modal:active {
+    background: #3c5147 !important;
 }
