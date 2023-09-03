@@ -114,8 +114,8 @@ textarea {
     margin-bottom: 0px;
     text-align: center;
     border-radius: 0px;
-    border-top: 0.1px solid #3f133e;
-    border-bottom: 0.1px solid #3f133e;
+    border-top: 0.1px solid rgba(63, 19, 62, 0.2);
+    border-bottom: 0.1px solid rgba(63, 19, 62, 0.2);
 }
 
 .pagination {
