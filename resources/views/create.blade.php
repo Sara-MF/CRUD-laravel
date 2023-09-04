@@ -58,6 +58,7 @@
                     <div class="col-md-6">
                         <label>Release Year</label>
                         <select name="release_year" id="release_year" class="form-control">
+                            <option value="0">Don't know the year</option>
                             @foreach($years as $year)
                                 <option value="{{ $year }}">{{ $year }}</option>
                             @endforeach
