@@ -36,9 +36,9 @@
                         @csrf
         
                         <div style="display: flex; flex-direction: row; gap: 10px;">
-                            <label>Title:</label>
+                            <label style="margin-top: 5px;">Title:</label>
                             <input id="title" name="title" type="text" class="form-control" style="max-height: 38px;">
-                            <button class="button col-md-3" type="submit">Search</button>
+                            <button class="button col-md-3" type="submit" style="margin-top: 2px;">Search</button>
                         </div>
 
                     </form>
