@@ -170,6 +170,13 @@ textarea {
     box-shadow: none;
 }
 
+@media (max-width: 768px) {
+    .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 .modal-content {
     border-radius: 50px !important;
 }
