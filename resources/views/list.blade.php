@@ -60,11 +60,11 @@
                                 <td>{{ $book->title }}</td>
                                 <td>{{ $book->author }}</td>
                                 <td>{{ $book->rented ? 'Yes' : 'No'}}</td>
-                                <td>
+                                <td style="min-width: 96px">
                                     <a href="{{ route('edit-book', ['id' => $book->id]) }}" style="color: #57727b; margin-right: 20px;">Edit <i class="fa fa-edit"></i></a>
                                     <button data-toggle="modal" data-target="#deleteConfirmationModal-{{ $book->id }}"
-                                            style="outline: none; border: none; background: none; cursor: pointer; color: #b7727c">
-                                            Delete  <i class="fa fa-trash" style="color: #b7727c"></i></button>
+                                            style="outline: none; border: none; background: none; cursor: pointer; padding: 0px; color: #b7727c">
+                                            Delete <i class="fa fa-trash" style="color: #b7727c"></i></button>
                                 </td>
                             </tr>
                             
