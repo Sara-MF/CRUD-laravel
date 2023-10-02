@@ -15,7 +15,7 @@ use App\Http\Controllers\BooksController;
 */
 
 Route::get('/', function () {
-    return view('master');
+    return view('welcome');
 });
 
 Route::get('/list', [BooksController::class, 'index'])->name('list');
@@ -29,3 +29,7 @@ Route::get('/edit/{id}', [BooksController::class, 'edit'])->name('edit-book');
 Route::put('/edit/{id}', [BooksController::class, 'update'])->name('update-book');
 
 Route::delete('/delete/{id}', [BooksController::class, 'delete'])->name('delete-book');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
