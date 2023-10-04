@@ -25,7 +25,7 @@ class BooksController extends Controller
             $books = Books::orderBy('title')->paginate(10);
         }
 
-        return view('list', compact('books', 'filters'));
+        return view('books.list', compact('books', 'filters'));
     }
 
     public function create()
@@ -35,7 +35,7 @@ class BooksController extends Controller
 
         for ($year = Carbon::now()->year; $year >= 1950; $year--) $years[$year] = $year;
 
-        return view('create', compact('years'));
+        return view('books.create', compact('years'));
     }
 
     public function store(Request $request)
@@ -92,7 +92,7 @@ class BooksController extends Controller
 
         for ($year = Carbon::now()->year; $year >= 1950; $year--) $years[$year] = $year;
 
-        return view('update', compact('book', 'years'));
+        return view('books.update', compact('book', 'years'));
     }
 
     public function update(Request $request, string $id)
