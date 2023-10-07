@@ -36,6 +36,7 @@ form .form-control:focus {
 
 .content {
     background: #edd8e2;
+    min-width: 400px;
     max-width: 800px;
     margin: auto;
     margin-top: 35px;

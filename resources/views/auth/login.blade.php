@@ -4,7 +4,7 @@
 
     <div class="content" style="margin: auto">
         <div class="header-content">
-            <h3>Login</h3>
+            <h3 style="margin: auto">Login</h3>
         </div>
 
         <div class="body-content">
@@ -50,7 +50,7 @@
                         </button>
                     </div> -->
 
-                    <div style="text-align: center; margin-bottom: -15px">
+                    <div style="text-align: center; margin-bottom: -15px; margin-top: 10px">
                         <button class="button button-form col-md-3 col-sm-12" type="submit">Login</button>
                     </div>
 
