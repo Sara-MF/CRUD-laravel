@@ -1,7 +1,48 @@
 @extends('layouts.auth')
 
 @section('content')
-<div class="container" style="margin: auto">
+    <div class="content" style="margin: auto">
+
+        <div class="header-content">
+            <h3 style="margin: auto">Reset Password</h3>
+        </div>
+
+        <div class="body-content">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+
+                <div class="form-group">
+
+                    <div class="col-md-12" style="margin-bottom: 10px;">
+                        <label style="color: #4F2A49">Email Address</label>
+                        <input id="email" name="email" class="form-control" type="email" required>
+
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: -15px; margin-top: 10px">
+                        <button class="button button-form col-md-8 col-sm-12" type="submit">Send Password Reset Link</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+<!-- <div class="container" style="margin: auto">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -43,5 +84,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 @endsection
