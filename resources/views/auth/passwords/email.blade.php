@@ -7,12 +7,29 @@
             <h3 style="margin: auto">Reset Password</h3>
         </div>
 
-        <div class="body-content">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
+        @if (count($errors) > 0 && $errors->has('error'))
+            <div>
+                <ul>
+                    @foreach($errors->all() as $error)
+                        {{$error}}
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <!-- @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif -->
+
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        <div class="body-content"> 
 
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
@@ -31,7 +48,7 @@
                     </div>
 
                     <div style="text-align: center; margin-bottom: -15px; margin-top: 10px">
-                        <button class="button button-form col-md-8 col-sm-12" type="submit">Send Password Reset Link</button>
+                        <button class="button button-form col-md-8 col-sm-10" type="submit">Send Password Reset Link</button>
                     </div>
 
                 </div>
