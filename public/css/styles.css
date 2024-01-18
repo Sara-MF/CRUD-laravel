@@ -222,3 +222,27 @@ textarea {
 .button-modal:active {
     background: #3c5147 !important;
 }
+
+.auth-img {
+    background-image: url('../auth-img.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto;
+    background-color: #f9f2e5;
+}
+
+@media (max-width: 767px) {
+    .responsive-auth {
+        margin-left: 0 !important;
+    } 
+
+    .content .col-md-12 {
+        padding: 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .content {
+        min-width: 300px;
+    }
+}

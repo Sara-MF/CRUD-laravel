@@ -28,15 +28,9 @@
 
     </head>
 
-    <body style="height: 100vh; overflow: hidden">
+    <body class="auth-img" style="height: 100vh; overflow: hidden">
 
-        <div style="width: 40%; max-height: 100vh; float: left; background: green; ">
-
-            <img src="{{ asset('auth-img.jpg') }}" style="min-width: 100%;">
-
-        </div>
-
-        <div style="margin-left: 40%; background: #F9F2E5; min-height: 100%; display: flex">
+        <div class="responsive-auth" style="margin-left: 40%; background: #F9F2E5; min-height: 100%; display: flex">
 
             @yield('content')
 
